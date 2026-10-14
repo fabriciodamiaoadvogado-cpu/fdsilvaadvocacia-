@@ -109,12 +109,15 @@ body.modo-site{--f-display:"Montserrat","Helvetica Neue",Arial,sans-serif; --f-b
 .s-g4:last-child{margin-bottom:0}
 .s-area{background:var(--s-card); border-radius:12px; overflow:hidden; box-shadow:var(--s-sh); display:flex; flex-direction:column; transition:transform .2s, box-shadow .2s}
 .s-area:hover{transform:translateY(-5px); box-shadow:var(--s-sh-lg)}
-.s-area-arte{position:relative; aspect-ratio:16/9; background-color:#0B1929; background-image:radial-gradient(rgba(227,182,69,.14) 1px, transparent 1.4px), radial-gradient(120% 90% at 30% 20%, #1B3149, #081421 70%); background-size:18px 18px, auto; display:grid; place-items:center; overflow:hidden}
+.s-area-arte{position:relative; aspect-ratio:16/9; background:radial-gradient(120% 95% at 50% 40%, #183049, #0A1828 72%); display:grid; place-items:center; overflow:hidden}
 .s-area-arte img{width:100%; height:100%; object-fit:cover}
 .pub .ph{width:1em; height:1em; display:block; flex:none}
-.s-medal{position:relative; z-index:1; width:108px; height:108px; border-radius:50%; display:grid; place-items:center; font-size:56px; color:#E3B645; background:radial-gradient(circle at 34% 28%, rgba(242,214,138,.26), rgba(227,182,69,.06) 62%, rgba(8,20,33,.2)); border:1px solid rgba(227,182,69,.5); box-shadow:0 0 0 9px rgba(227,182,69,.07), 0 0 0 10px rgba(227,182,69,.18), 0 18px 40px rgba(0,0,0,.4); transition:transform .3s}
-.s-area:hover .s-medal{transform:scale(1.05)}
-.s-dagua{position:absolute; right:-26px; bottom:-34px; font-size:190px; color:#E3B645; opacity:.08; transform:rotate(-12deg)}
+.s-guil{position:absolute; inset:0; width:100%; height:100%; color:#E3B645}
+.s-guil path{fill:none; stroke:currentColor; vector-effect:non-scaling-stroke}
+.s-guil-ondas{opacity:.09; stroke-width:.8px}
+.s-guil-rosa{opacity:.42; stroke-width:.75px; transition:opacity .35s}
+.s-area:hover .s-guil-rosa{opacity:.62}
+.s-selo{position:relative; z-index:1; width:70px; height:70px; border-radius:50%; display:grid; place-items:center; font-size:38px; color:#F2D68A; background:#0B1929; box-shadow:0 0 0 1px rgba(227,182,69,.6), 0 0 0 5px #0B1929, 0 0 0 6px rgba(227,182,69,.28)}
 .s-area-in{padding:24px 22px 26px; display:flex; flex-direction:column; gap:12px; flex:1}
 .s-area h3{font:700 1.14rem/1.25 var(--fh)}
 .s-area p{color:var(--s-muted); font-size:.92rem}
@@ -128,9 +131,9 @@ body.modo-site{--f-display:"Montserrat","Helvetica Neue",Arial,sans-serif; --f-b
 .s-svc{background:var(--s-card); border:1px solid var(--s-line); border-radius:12px; padding:24px 22px; display:flex; flex-direction:column; gap:8px; transition:box-shadow .18s, transform .18s}
 .s-svc:hover{box-shadow:var(--s-sh-lg); transform:translateY(-3px); border-color:rgba(227,182,69,.55)}
 .s-svc-top{display:flex; align-items:center; gap:12px; margin-bottom:6px}
-.s-svc-ic{width:50px; height:50px; border-radius:12px; display:grid; place-items:center; flex:none; background:linear-gradient(145deg,#16293D,#081421); color:#E3B645; font-size:28px; box-shadow:0 6px 16px rgba(8,20,33,.18)}
-.s-svc:hover .s-svc-ic{color:#F2D68A}
-.s-tag{font:700 .64rem/1.2 var(--fh); letter-spacing:.17em; text-transform:uppercase; color:var(--gold-ink)}
+.s-svc-ic{width:52px; height:52px; border-radius:50%; display:grid; place-items:center; flex:none; background:color-mix(in srgb, #E3B645 10%, transparent); border:1px solid color-mix(in srgb, #B8902F 40%, transparent); color:var(--gold-ink); font-size:28px; transition:background .2s, color .2s, border-color .2s}
+.s-svc:hover .s-svc-ic{background:#0B1929; border-color:#0B1929; color:#E3B645}
+.s-tag{font:600 .82rem/1.25 var(--fh); letter-spacing:.01em; color:var(--gold-ink)}
 .s-svc h3{font:700 1.02rem/1.3 var(--fh)}
 .s-svc p{color:var(--s-muted); font-size:.9rem; line-height:1.55}
 .s-svc a{margin-top:auto; padding-top:10px; font:700 .74rem/1 var(--fh); letter-spacing:.08em; text-transform:uppercase; color:var(--gold-ink); text-decoration:none}
@@ -558,3 +561,13 @@ body.portal-aberto .pub::after{content:""; position:fixed; inset:0; background:v
 @media (prefers-reduced-motion:reduce){.pub *,.portal,.portal *{animation:none!important; transition:none!important}}
 
 body.portal-aberto .scrim.confirma{z-index:70}
+
+/* Editor do site: foto própria por área e ícone de cada serviço */
+.area-foto{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.area-foto img,.area-foto-g{width:112px; aspect-ratio:16/9; border-radius:8px; object-fit:cover; overflow:hidden; position:relative; display:grid; place-items:center; background:radial-gradient(120% 95% at 50% 40%, #183049, #0A1828 72%); flex:none}
+.area-foto-g .s-selo{width:34px; height:34px; font-size:18px; box-shadow:0 0 0 1px rgba(227,182,69,.6)}
+.area-foto-g .ph,.svc-ic-v .ph{width:1em; height:1em; display:block}
+.svc-ics{display:flex; flex-direction:column; gap:8px; border:1px solid var(--line, rgba(127,127,127,.25)); border-radius:10px; padding:10px 12px}
+.svc-ic-ed{display:grid; grid-template-columns:30px 1fr minmax(150px, 220px); gap:10px; align-items:center}
+.svc-ic-v{font-size:22px; color:#B8902F}
+@media (max-width:560px){.svc-ic-ed{grid-template-columns:30px 1fr}.svc-ic-ed select{grid-column:1 / -1}}
