@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/area-do-cliente", "destination": "https://causalia-app.vercel.app/entrar", "permanent": false },
+    { "source": "/entrar", "destination": "https://causalia-app.vercel.app/entrar", "permanent": false }
+  ]
+}
