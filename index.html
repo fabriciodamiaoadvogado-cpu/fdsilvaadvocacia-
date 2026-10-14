@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+</head>
+<body>
+<title>Portal Jurídico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=Spectral:ital,wght@0,500;0,600;1,400;1,500;1,600&display=swap">
+<link rel="stylesheet" href="jarvis/estilo.css">
+<link rel="stylesheet" href="jarvis/site.css">
+<style>html{background:#EEF1F5}@media (prefers-color-scheme: dark){html:not([data-theme="light"]){background:#060E1C}}html[data-theme="dark"],html[data-tema="escuro"]{background:#060E1C}</style>
+
+<main class="pub" id="pub" hidden></main>
+<aside class="portal" id="portal" hidden aria-label="Portal do cliente"><div class="portal-in" id="portal-in"></div></aside>
+
+<div class="lock" id="lock" hidden role="dialog" aria-modal="true" aria-labelledby="lock-t">
+  <div class="lock-in">
+    <div class="tele"><span>Jarvis <b>v6</b></span><span>Banco <b id="t-db">…</b></span><span>IA <b id="t-ia">…</b></span><span>Hora <b id="t-hora" class="num"></b></span></div>
+    <div class="lock-orb" aria-hidden="true"><span class="ring"></span><span class="ring r2"></span><span class="ring r3"></span><span class="scan"></span><span class="core">J</span></div>
+    <h2 id="lock-t">Portal Jurídico</h2>
+    <div class="wave" id="wave" aria-hidden="true"></div>
+    <p class="lock-st" id="lock-st" role="status">Iniciando sistemas…</p>
+    <form class="login" id="login-form" hidden autocomplete="on">
+      <label>Usuário<input class="field" id="lg-user" name="username" autocomplete="username" required></label>
+      <label>Senha<input class="field" id="lg-pass" name="password" type="password" autocomplete="current-password" required></label>
+      <label id="lg-pass2-l" hidden>Repita a senha<input class="field" id="lg-pass2" type="password" autocomplete="new-password"></label>
+      <label id="lg-nome-l" hidden>Seu nome, como vai nas peças<input class="field" id="lg-nome" placeholder="Nome completo"></label>
+      <label id="lg-oab-l" hidden>OAB<input class="field" id="lg-oab" placeholder="OAB/UF 000000"></label>
+      <button class="btn" type="submit" id="lg-go">Entrar</button>
+      <button class="link" type="button" id="lg-esqueci">Esqueci a senha</button>
+    </form>
+    <div class="boot" id="boot" hidden></div>
+    <div class="lock-act"><button class="btn ghost" type="button" id="demo-btn">Ver a demonstração</button><button class="btn ghost" type="button" id="lock-site">Voltar ao site</button></div>
+    <p class="meta" id="lock-nota" style="max-width:56ch"></p>
+  </div>
+</div>
+
+<div class="app">
+  <aside class="rail" aria-label="Navegação">
+    <div class="brand"><span class="mark" id="brand-mark" aria-hidden="true">J</span><div><strong id="brand-nome">Portal Jurídico</strong><small id="brand-sub">Escritório Digital</small></div></div>
+    <div class="area-sw seg" role="group" aria-label="Área" hidden><button type="button" data-area="escritorio" aria-pressed="true">Escritório</button><button type="button" data-area="revenda" aria-pressed="false">Revenda</button></div>
+    <nav class="nav" id="nav"></nav>
+    <div class="sys" id="sys" aria-label="Sistemas conectados"></div>
+    <div class="rail-foot" id="rail-foot"></div>
+  </aside>
+
+  <main class="main">
+    <header class="top">
+      <button class="sc menu-btn" type="button" id="menu-btn" aria-label="Abrir todas as telas"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><b>Menu</b></button>
+      <div class="ttl"><div class="eyebrow" id="eyebrow"></div><h1 id="title"></h1></div>
+      <button class="busca" type="button" id="busca-btn" aria-label="Buscar ou mandar o Jarvis fazer">
+        <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>
+        <span>Buscar cliente, processo ou mandar o Jarvis fazer</span><kbd>Ctrl K</kbd>
+      </button>
+      <div class="chips">
+        <span class="sc modelo" id="modo-chip" title="Demonstração usa dados fictícios; Escritório usa os dados reais">Demonstração</span>
+        <button class="sc foco-chip" type="button" id="foco-chip" hidden title="Cronômetro de foco"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="7.5"/><path d="M12 9.5V13l2.5 1.5M9.5 3.5h5"/></svg><b class="num"></b></button>
+        <span class="sc tempo-chip"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><b class="num" id="relogio">--:--</b><span class="muted" id="tempo-extra">· 29°</span></span>
+        <span class="sc agua"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 3.5s6 6.4 6 10.5a6 6 0 0 1-12 0c0-4.1 6-10.5 6-10.5z"/></svg><b class="num" id="agua-n">0/8</b><button class="mais" type="button" id="agua-mais" aria-label="Bebi um copo de água">+</button></span>
+        <button class="sc" type="button" id="sino" aria-label="Avisos do Jarvis"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><span class="badge" id="sino-n">0</span></button>
+        <button class="sc" type="button" id="tema-btn" aria-label="Trocar o tema claro ou escuro"></button>
+        <button class="sc" type="button" id="voz-btn" aria-pressed="false" aria-label="Ligar ou desligar a voz do Jarvis"></button>
+        <button class="sc" type="button" id="trat-btn" title="Como o Jarvis chama você"><b id="trat-chip">Doutor</b></button>
+      </div>
+    </header>
+    <section id="view" aria-live="polite"></section>
+  </main>
+</div>
+
+<button class="fab" type="button" id="fab" aria-label="Falar com o Jarvis" hidden>J</button>
+<aside class="dock" id="dock" aria-label="Conversa com o Jarvis" hidden>
+  <div class="dock-h"><b>Jarvis</b><span class="meta" data-modo-ia></span><button class="icon-btn" type="button" id="dock-x" aria-label="Fechar conversa"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+</aside>
+<div class="scrim" id="pal" hidden>
+  <div class="palette" role="dialog" aria-modal="true" aria-labelledby="pal-t">
+    <div class="pal-in"><label class="sr" id="pal-t" for="pal-q">Buscar ou mandar o Jarvis fazer</label>
+      <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>
+      <input id="pal-q" autocomplete="off" placeholder="Cliente, processo, tela ou um pedido ao Jarvis"><kbd>Esc</kbd></div>
+    <div class="pal-list" id="pal-list" role="listbox"></div>
+    <div class="pal-foot"><span>Setas para escolher, Enter para abrir</span><span>Sem resultado, o pedido vai para o Jarvis</span></div>
+  </div>
+</div>
+<div class="scrim launcher" id="launcher" hidden><div class="launcher-in" id="launcher-in" role="dialog" aria-modal="true" aria-label="Todas as telas"></div></div>
+<div class="scrim confirma" id="confirma" hidden></div>
+<div class="notif" id="notif" hidden></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="jarvis/dados.js"></script>
+<script src="jarvis/app.js"></script>
+
+</body>
+</html>
