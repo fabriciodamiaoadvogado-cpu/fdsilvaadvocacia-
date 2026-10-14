@@ -1,0 +1,47 @@
+/* Base do site publicado da FD Silva Advocacia: cores do tema (claro e escuro) e peças simples
+   que o portal, o assistente e os avisos usam. Gerado a partir do estilo do Jarvis. */
+:root{--a-l:#C9A227; --a-ink-l:#7A5C08; --a-on-l:#1A1405; --a-d:#D9B44A; --a-ink-d:#F1D27C; --a-on-d:#1A1405}
+:root{--bg:#EEF1F5; --bg-2:#E5EAF1; --panel:#FFFFFF; --panel-2:#F4F6F9; --line:#DDE3EB; --line-2:#C6D0DC; --ink:#0F1B2D; --muted:#536073; --faint:#7F8A9C; --voice:#0B7896; --crit:#B3261E; --warn:#935200; --ok:#24703F; --scrim:rgba(15,27,45,.38); --grid:rgba(15,27,45,.07); --shadow:0 1px 2px rgba(15,27,45,.06), 0 12px 32px rgba(15,27,45,.09); --acc:var(--a-l); --acc-ink:var(--a-ink-l); --on-acc:var(--a-on-l); color-scheme:light}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){--bg:#060E1C; --bg-2:#091426; --panel:#0C1930; --panel-2:#10213D; --line:#1A2B49; --line-2:#284369; --ink:#E8EDF5; --muted:#93A1B8; --faint:#61708A; --voice:#62CDEB; --crit:#F27B70; --warn:#F0A64A; --ok:#5CC48A; --scrim:rgba(2,6,14,.7); --grid:rgba(255,255,255,.06); --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 40px rgba(0,0,0,.35); --acc:var(--a-d); --acc-ink:var(--a-ink-d); --on-acc:var(--a-on-d); color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#060E1C; --bg-2:#091426; --panel:#0C1930; --panel-2:#10213D; --line:#1A2B49; --line-2:#284369; --ink:#E8EDF5; --muted:#93A1B8; --faint:#61708A; --voice:#62CDEB; --crit:#F27B70; --warn:#F0A64A; --ok:#5CC48A; --scrim:rgba(2,6,14,.7); --grid:rgba(255,255,255,.06); --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 40px rgba(0,0,0,.35); --acc:var(--a-d); --acc-ink:var(--a-ink-d); --on-acc:var(--a-on-d); color-scheme:dark}
+:root[data-tema="claro"]{--bg:#EEF1F5; --bg-2:#E5EAF1; --panel:#FFFFFF; --panel-2:#F4F6F9; --line:#DDE3EB; --line-2:#C6D0DC; --ink:#0F1B2D; --muted:#536073; --faint:#7F8A9C; --voice:#0B7896; --crit:#B3261E; --warn:#935200; --ok:#24703F; --scrim:rgba(15,27,45,.38); --grid:rgba(15,27,45,.07); --shadow:0 1px 2px rgba(15,27,45,.06), 0 12px 32px rgba(15,27,45,.09); --acc:var(--a-l); --acc-ink:var(--a-ink-l); --on-acc:var(--a-on-l); color-scheme:light}
+:root[data-tema="escuro"]{--bg:#060E1C; --bg-2:#091426; --panel:#0C1930; --panel-2:#10213D; --line:#1A2B49; --line-2:#284369; --ink:#E8EDF5; --muted:#93A1B8; --faint:#61708A; --voice:#62CDEB; --crit:#F27B70; --warn:#F0A64A; --ok:#5CC48A; --scrim:rgba(2,6,14,.7); --grid:rgba(255,255,255,.06); --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 40px rgba(0,0,0,.35); --acc:var(--a-d); --acc-ink:var(--a-ink-d); --on-acc:var(--a-on-d); color-scheme:dark}
+:root{
+  --acc-soft:color-mix(in srgb, var(--acc) 14%, transparent); --voice-soft:color-mix(in srgb, var(--voice) 13%, transparent);
+  --crit-soft:color-mix(in srgb, var(--crit) 14%, transparent); --warn-soft:color-mix(in srgb, var(--warn) 15%, transparent);
+  --ok-soft:color-mix(in srgb, var(--ok) 15%, transparent);
+  --paper:#FFFFFF; --paper-ink:#141A24; --paper-line:#DCE2EA; --site-bar:#1D3B63; --site-bar-ink:#F3F6FA; --site-muted:#5A6474;
+  --f-display:"Spectral", Georgia, "Times New Roman", serif;
+  --f-body:"Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --r:14px; --r-s:9px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:#FFFFFF}
+@media (prefers-color-scheme: dark){html{background:#07111D}}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:"Lato","Helvetica Neue",Arial,sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.i{width:18px; height:18px; flex:none}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:7px; border:1px solid var(--acc); background:var(--acc); color:var(--on-acc); font-weight:700; font-size:14px; padding:9px 15px; border-radius:8px; cursor:pointer; white-space:nowrap; text-decoration:none; font-family:inherit}
+.btn:hover{filter:brightness(1.06)}
+mark.vf{background:var(--warn-soft); color:var(--warn)}
+mark.cf{background:var(--voice-soft); color:var(--voice)}
+mark.nl{background:var(--crit-soft); color:var(--crit)}
+.pensando{display:inline-flex; gap:4px}
+.pensando i{width:6px; height:6px; border-radius:50%; background:#E3B645; animation:pulo 1s infinite}
+.pensando i:nth-child(2){animation-delay:.15s}
+.pensando i:nth-child(3){animation-delay:.3s}
+@keyframes pulo{0%,100%{opacity:.25; transform:translateY(0)} 50%{opacity:1; transform:translateY(-3px)}}
+.scrim{position:fixed; inset:0; background:var(--scrim); z-index:60; display:flex; align-items:center; justify-content:center; padding:16px}
+.confirma-in{width:min(560px, 100%); background:var(--panel); color:var(--ink); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:20px; display:flex; flex-direction:column; gap:12px}
+.confirma-in .acts{display:flex; gap:8px; justify-content:flex-end; flex-wrap:wrap}
+.out h4{font:700 12.5px/1.3 "Montserrat",Arial,sans-serif; color:var(--acc-ink); text-transform:uppercase; letter-spacing:.06em; margin:12px 0 6px}
+.out h4:first-child{margin-top:0}
+.out ul,.out ol{margin:4px 0 8px; padding-left:20px}
+.out p{margin:0}
+.out p + p{margin-top:8px}
+.toast{position:fixed; left:50%; bottom:calc(env(safe-area-inset-bottom, 0px) + 72px); transform:translateX(-50%); background:#081421; color:#fff; border:1px solid #E3B645; padding:11px 16px; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.3); font-size:14px; z-index:90; max-width:calc(100% - 32px)}
+@media (prefers-reduced-motion:reduce){.pensando i{animation:none}}
